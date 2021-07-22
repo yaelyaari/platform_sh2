@@ -1,0 +1,72 @@
+<html>
+<body>
+ <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<div id="sankey_multiple" style="width: 4000; height: 1000p;"></div>
+
+<script type="text/javascript">
+  google.charts.load("current", {packages:["sankey"]})
+  google.charts.setOnLoadCallback(drawChart);
+   function drawChart() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'From');
+    data.addColumn('string', 'To');
+    data.addColumn('number', 'Count');
+    data.addRows([
+    ['Deals outro (click:4)','Outro (click:5)',5],
+    ['Intro (click:1)','Training (click:2)',23],
+    ['Outro (click:1)','Deal Registration (click:2)',2],
+    ['Product Roadmap (click:2)','url',6],
+    ['Partner Asset Library (click:2)','url',4],
+    ['Outro (click:5)','Deals outro (click:6)',1],
+    ['Training (click:10)','Outro (click:11)',1],
+    ['Training (click:12)','Intro (click:13)',1],
+    ['Training (click:2)','url',7],
+    ['Intro (click:13)','Partner Asset Library (click:14)',1],
+    ['Outro (click:11)','Training (click:12)',1],
+    ['Tour Redone (click:3)','Deals outro (click:4)',6],
+    ['Deal Registration (click:2)','Tour Redone (click:3)',13],
+    ['Intro (click:1)','Deal Registration (click:2)',14],
+    ['Outro (click:1)','Training (click:2)',2],
+    ['Intro (click:1)','Partner Asset Library (click:2)',5],
+    ['Partner Asset Library (click:3)','url',1],
+    ['Intro (click:1)','Product Roadmap (click:2)',7],
+    ['Intro (click:9)','Training (click:10)',1],
+    ['Deal Registration (click:8)','Intro (click:9)',1],
+    ['Outro (click:1)','Tour Redone (click:2)',2],
+    ['Training (click:2)','Outro (click:3)',2],
+    ['Tour Redone (click:7)','Deal Registration (click:8)',1],
+    ['Deals outro (click:6)','Tour Redone (click:7)',1],
+    ['Partner Asset Library (click:14)','url',1],
+    ]);
+
+    // Set chart options
+    var options = {
+      width: 40000,
+      sankey: { node: { nodePadding: 400 } },
+    };
+    
+    // Set colors
+    var colors = ["c2f9bb","9ad1d4","62c370","cc3363",
+                "20063b","a4036f","f29e4c","d7816a"];
+
+    var options = {
+      height: 2000,
+      sankey: {
+        node: {
+          colors: colors
+        },
+        link: {
+          colorMode: 'gradient',
+          colors: colors
+        }
+      }
+    };
+
+    // Instantiate and draw our chart, passing in some options.
+    var chart = new google.visualization.Sankey(document.getElementById('sankey_multiple'));
+    chart.draw(data, options);
+   }
+</script>
+</body>
+</html>
